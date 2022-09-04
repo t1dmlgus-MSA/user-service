@@ -21,8 +21,11 @@ public class UserController {
     }
 
     @GetMapping("/health-check")
-    public String status(){
-        return env.getProperty("greeting.message");
+    public ResponseEntity<CommonResponse<String>> status(){
+
+        String healthCheckMessage = env.getProperty("greeting.message");
+        CommonResponse<String> commonResponse = CommonResponse.of(healthCheckMessage);
+        return ResponseEntity.ok(commonResponse);
     }
 
     @PostMapping("/users")

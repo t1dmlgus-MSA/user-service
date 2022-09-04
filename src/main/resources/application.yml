@@ -36,4 +36,4 @@ eureka:
 
 
 greeting:
-  message: On user-service!
+  message: Hello user-service!
