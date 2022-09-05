@@ -50,17 +50,15 @@ class UserControllerTest {
         // then
         resultActions
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(jsonPath("$.message").value("Hello user-service!"))
                 .andDo(print()
                 );
-
     }
 
     @Test
     void join_user_returns_userToken_exists() throws Exception {
 
         //given
-        UserDto.join userDto = UserDto.join.builder()
+        UserDto.Join userDto = UserDto.Join.builder()
                 .name("이의현")
                 .email("dmlgusgngl@gmail.com")
                 .pwd("1234")
@@ -75,7 +73,7 @@ class UserControllerTest {
 
         //when
         ResultActions resultActions = mockMvc.perform(
-                post("/users")
+                post("/user-service/users")
                         .content(json)
                         .contentType(MediaType.APPLICATION_JSON_UTF8)
         );

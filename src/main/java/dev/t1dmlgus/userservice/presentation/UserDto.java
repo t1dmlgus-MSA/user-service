@@ -14,7 +14,7 @@ public class UserDto {
     @ToString
     @NoArgsConstructor
     @Getter
-    public static class join{
+    public static class Join {
 
         @NotBlank(message = "이름을 입력해주세요")
         private String name;
@@ -25,7 +25,7 @@ public class UserDto {
         private String pwd;
 
         @Builder
-        public join(String name, String email, String pwd) {
+        public Join(String name, String email, String pwd) {
             this.name = name;
             this.email = email;
             this.pwd = pwd;
