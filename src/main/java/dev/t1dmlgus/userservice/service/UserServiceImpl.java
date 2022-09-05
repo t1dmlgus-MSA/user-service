@@ -23,5 +23,13 @@ public class UserServiceImpl implements UserService{
         return UserInfo.UserToken.newInstance(save);
     }
 
+    @Override
+    public UserInfo.UserDetail inquire(String userToken) {
+
+        User user = userRepository.findByUserToken(userToken)
+                .orElseThrow(() -> new RuntimeException("회원이 존재하지 않습니다."));
+        return UserInfo.UserDetail.newInstance(user);
+    }
+
 
 }

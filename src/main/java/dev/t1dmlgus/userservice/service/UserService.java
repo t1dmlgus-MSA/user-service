@@ -4,6 +4,7 @@ package dev.t1dmlgus.userservice.service;
  *
  * @Description  유저 서비스 인터페이스
  * @version 1.0, 회원가입
+ *               회원조회
  *
  * @author t1dmlgus
  *
@@ -11,5 +12,7 @@ package dev.t1dmlgus.userservice.service;
 
 public interface UserService {
 
-    public UserInfo.UserToken join(UserCommand.joinUser userCommand);
+    UserInfo.UserToken join(UserCommand.joinUser userCommand);
+
+    UserInfo.UserDetail inquire(String userToken);
 }
